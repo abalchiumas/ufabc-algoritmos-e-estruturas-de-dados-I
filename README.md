@@ -1,1 +1,1 @@
-# UFABC - Algoritmos e Etruturas e Dados I
+# MCTA001-17 - Algoritmos e Etruturas e Dados I
