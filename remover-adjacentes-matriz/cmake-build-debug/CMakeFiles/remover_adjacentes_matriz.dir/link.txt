@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/remover_adjacentes_matriz.dir/main.c.o -o remover_adjacentes_matriz 

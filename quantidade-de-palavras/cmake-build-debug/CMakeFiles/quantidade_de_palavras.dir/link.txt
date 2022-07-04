@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/quantidade_de_palavras.dir/main.c.o -o quantidade_de_palavras 

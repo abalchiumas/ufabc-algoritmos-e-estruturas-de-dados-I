@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/quantidade_discos_voadores.dir/main.c.o -o quantidade_discos_voadores 

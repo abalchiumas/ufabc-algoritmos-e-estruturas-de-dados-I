@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/valor_frequente_vetor.dir/main.c.o -o valor_frequente_vetor 

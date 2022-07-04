@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.21"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "quantidade_de_digitos",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "quantidade_de_digitos::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-quantidade_de_digitos-Debug-ddc7244a5fd39c01e1de.json",
+					"name" : "quantidade_de_digitos",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/mnt/c/Users/andre/OneDrive/Área de Trabalho/dev/MCTA001-17/quantidade-de-digitos/cmake-build-debug",
+		"source" : "/mnt/c/Users/andre/OneDrive/Área de Trabalho/dev/MCTA001-17/quantidade-de-digitos"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

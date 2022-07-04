@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/sequencia_valores_ordenados.dir/main.c.o -o sequencia_valores_ordenados 

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="resultado_funcao"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/mnt/c/Users/andre/OneDrive/Área de Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/mnt/c/Users/andre/OneDrive/Área de Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/mnt/c/Users/andre/OneDrive/Área de Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="resultado_funcao">
+				<Option output="/mnt/c/Users/andre/OneDrive/Área de Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/resultado_funcao" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/andre/OneDrive/Área de Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 resultado_funcao"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="resultado_funcao/fast">
+				<Option output="/mnt/c/Users/andre/OneDrive/Área de Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/resultado_funcao" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/andre/OneDrive/Área de Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 resultado_funcao/fast"/>
+					<CompileFile command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j16 -f &quot;/mnt/c/Users/andre/OneDrive/Área\ de\ Trabalho/dev/MCTA001-17/resultado-funcao/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/mnt/c/Users/andre/OneDrive/Área de Trabalho/dev/MCTA001-17/resultado-funcao/main.c">
+			<Option target="resultado_funcao"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/andre/OneDrive/Área de Trabalho/dev/MCTA001-17/resultado-funcao/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

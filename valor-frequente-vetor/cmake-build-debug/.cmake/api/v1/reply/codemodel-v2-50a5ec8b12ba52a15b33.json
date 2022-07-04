@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.21"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "valor_frequente_vetor",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "valor_frequente_vetor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-valor_frequente_vetor-Debug-d1b5c660869951e521dd.json",
+					"name" : "valor_frequente_vetor",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/mnt/c/Users/andre/OneDrive/Área de Trabalho/dev/MCTA001-17/valor-frequente-vetor/cmake-build-debug",
+		"source" : "/mnt/c/Users/andre/OneDrive/Área de Trabalho/dev/MCTA001-17/valor-frequente-vetor"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
