@@ -12,19 +12,21 @@ if [ ! -f "$relativePath" ]; then
     exit 1
 fi
 
+mkdir -p out
+
 filename=$(basename "$relativePath")
 filenameNoExtension="${filename%.*}"
 
-if [ -f "$filenameNoExtension" ]; then
-    rm "$filenameNoExtension"
+if [ -f "out/$filenameNoExtension" ]; then
+    rm "out/$filenameNoExtension"
 fi
 
-gcc "$relativePath" -o "$filenameNoExtension"
+gcc "$relativePath" -o "out/$filenameNoExtension"
 
 if [ $? -eq 0 ]; then
-    "./$filenameNoExtension"
-    
-    rm "$filenameNoExtension"
+    "./out/$filenameNoExtension"
+	echo    
+    rm "out/$filenameNoExtension"
 else
     echo "Compilation failed"
 fi
