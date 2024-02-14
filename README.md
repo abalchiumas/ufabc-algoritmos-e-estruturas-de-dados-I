@@ -4,9 +4,8 @@
 
 Repo. para salvar a resolução dos exercícios semanais.
 
-Para rodar, execute o seguinte no console/shell:
+Para compilar e rodar, execute o seguinte comando no shell:
 
 ```
-gcc <arquivo>.c -o <arquivo>.exe
-./<arquivo>.exe
+./run.sh <caminho_relativo_do_arquivo>
 ```
