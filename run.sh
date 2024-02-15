@@ -21,7 +21,7 @@ if [ -f "out/$filenameNoExtension" ]; then
     rm "out/$filenameNoExtension"
 fi
 
-gcc "$relativePath" -o "out/$filenameNoExtension"
+gcc "$relativePath" -o "out/$filenameNoExtension" -lm
 
 if [ $? -eq 0 ]; then
     "./out/$filenameNoExtension"
