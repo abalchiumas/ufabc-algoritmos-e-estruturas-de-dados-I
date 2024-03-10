@@ -22,6 +22,7 @@ int *insertionSort(int *vetor, const int n) {
 			i--;
 		}
 		vetor[i + 1] = key;
+		printVector(vetor, n);
 	}
 	return vetor;
 }
