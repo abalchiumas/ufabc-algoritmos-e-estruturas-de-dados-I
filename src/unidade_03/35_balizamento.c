@@ -20,31 +20,42 @@ void reordenarAtletas(Atleta *atletas, const int qntdAtletas) {
 
 Atleta *mergeAtletas(Atleta *atletasComBalizamento, const int qntdAtletasComBalizamento, Atleta *atletasSemBalizamento, const int qntdAtletasSemBalizamento) {
 	Atleta *atletasMerge = malloc((qntdAtletasComBalizamento + qntdAtletasSemBalizamento) * sizeof(Atleta));
-	for (int i = 0; i < qntdAtletasComBalizamento; i++) {
-        atletasMerge[i] = atletasComBalizamento[i];
-    }
-    for (int i = 0; i < qntdAtletasSemBalizamento; i++) {
-        atletasMerge[qntdAtletasComBalizamento + i] = atletasSemBalizamento[i];
-    }
+	for (int i = 0; i < qntdAtletasComBalizamento; i++) { atletasMerge[i] = atletasComBalizamento[i]; }
+    for (int i = 0; i < qntdAtletasSemBalizamento; i++) { atletasMerge[qntdAtletasComBalizamento + i] = atletasSemBalizamento[i]; }
 	free(atletasComBalizamento);
 	free(atletasSemBalizamento);
-	return atletasMerge;	
+	return atletasMerge;
 }
 
-void balizamento(Atleta *atletas, const int qntdSeries, const int qntdRaias, const int qntdAtletas) {
-	int endIndex = qntdAtletas, startIndex = (qntdAtletas - (1 - (qntdAtletas % 2)) - (qntdAtletas % qntdRaias)); // funciona para (qntdRaias, qntdAtletas) = (8, 10), (7, 11), (8, 18), (8, 5)
+void balizamento(const Atleta *atletas, const int qntdSeries, const int qntdRaias, const int qntdAtletas) {
+	Atleta **balizamentoAtletas = malloc(qntdSeries * sizeof(Atleta *));
+	int atletaIndex = 0;
+	for (int serie = qntdSeries - 1; serie >= 0; serie--) {
+		balizamentoAtletas[serie] = malloc(qntdRaias * sizeof(Atleta));
+		int qntdNadadoresPorSerie;
+		for (int i = 0; i < qntdRaias; i++) { 
+			if (atletaIndex < qntdAtletas) { 
+				balizamentoAtletas[serie][i] = atletas[atletaIndex++];
+				qntdNadadoresPorSerie++;
+			}
+		}
+	}	
+
+	// TODO: checagem se há no mínimo 3 nadadores por série (qntdSeries >= 2)
+
 	for (int serie = 0; serie < qntdSeries; serie++) {
 		printf("%da. serie:\n", serie + 1);
+
 		int raiaAtletaInicial = (qntdRaias + (qntdRaias % 2)) / 2, modificadorNumeroRaia = 1, contadorRaia = 1;
-		for (int k = startIndex; k < endIndex; k++) {
-			printf("Raia %d: %s\n", raiaAtletaInicial, atletas[k].nome);
-			raiaAtletaInicial = raiaAtletaInicial + (modificadorNumeroRaia * contadorRaia);
-			modificadorNumeroRaia = modificadorNumeroRaia * -1;
-			contadorRaia++;
-		}
-		endIndex = startIndex;
-		startIndex = startIndex - qntdRaias + (1 - (qntdAtletas % 2)); 
-	}	
+		for (int j = 0; j < qntdRaias; j++)	{
+			if (balizamentoAtletas[serie][j].nome != NULL) {
+				printf("Raia %d: %s\n", raiaAtletaInicial, balizamentoAtletas[serie][j].nome);
+				raiaAtletaInicial = raiaAtletaInicial + (modificadorNumeroRaia * contadorRaia), modificadorNumeroRaia = modificadorNumeroRaia * -1, contadorRaia++;
+			}
+		}		
+    	free(balizamentoAtletas[serie]);
+	}
+	free(balizamentoAtletas);
 }
 
 int main(void) {
@@ -79,9 +90,7 @@ int main(void) {
 
 	balizamento(atletas, qntdSeries, qntdRaias, qntdAtletas);
 
-	printf("\nLista ordenada pelo tempo de balizamento:\n");
 	for (int j = 0; j < qntdAtletas; j++) {
-		printf("%d) %s | %d\n", j, atletas[j].nome, atletas[j].centesimosTotal);
 		free(atletas[j].nome);
 	}	
 	free(atletas);	
