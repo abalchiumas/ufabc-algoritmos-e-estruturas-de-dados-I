@@ -27,25 +27,40 @@ Atleta *mergeAtletas(Atleta *atletasComBalizamento, const int qntdAtletasComBali
 	return atletasMerge;
 }
 
+void checkMinimumAtletas(Atleta **balizamentoAtletas, const int qntdSeries, const int qntdRaias) {
+	int countPrimeiraSerie = 0;
+	for (int i = 0; i < qntdRaias; i++)	{
+		if (balizamentoAtletas[0][i].nome != NULL) {
+			countPrimeiraSerie++;
+		}
+	}
+	if (countPrimeiraSerie < 3) {
+		for (int j = qntdRaias - 1; j > 0; j--) {
+			balizamentoAtletas[0][j] = balizamentoAtletas[0][j - 1];
+		}
+		balizamentoAtletas[0][0] = balizamentoAtletas[1][qntdRaias - 1];
+		balizamentoAtletas[1][qntdRaias - 1].nome = NULL;
+	}	
+}
+
 void balizamento(const Atleta *atletas, const int qntdSeries, const int qntdRaias, const int qntdAtletas) {
 	Atleta **balizamentoAtletas = malloc(qntdSeries * sizeof(Atleta *));
 	int atletaIndex = 0;
 	for (int serie = qntdSeries - 1; serie >= 0; serie--) {
 		balizamentoAtletas[serie] = malloc(qntdRaias * sizeof(Atleta));
-		int qntdNadadoresPorSerie;
-		for (int i = 0; i < qntdRaias; i++) { 
+		int qntdNadadoresPorSerie;		
+		for (int i = 0; i < qntdRaias; i++) {		
 			if (atletaIndex < qntdAtletas) { 
 				balizamentoAtletas[serie][i] = atletas[atletaIndex++];
 				qntdNadadoresPorSerie++;
 			}
 		}
-	}	
+	}
 
-	// TODO: checagem se há no mínimo 3 nadadores por série (qntdSeries >= 2)
+	if (qntdSeries == 2 || qntdSeries > 2) { checkMinimumAtletas(balizamentoAtletas, qntdSeries, qntdRaias); }
 
 	for (int serie = 0; serie < qntdSeries; serie++) {
 		printf("%da. serie:\n", serie + 1);
-
 		int raiaAtletaInicial = (qntdRaias + (qntdRaias % 2)) / 2, modificadorNumeroRaia = 1, contadorRaia = 1;
 		for (int j = 0; j < qntdRaias; j++)	{
 			if (balizamentoAtletas[serie][j].nome != NULL) {
