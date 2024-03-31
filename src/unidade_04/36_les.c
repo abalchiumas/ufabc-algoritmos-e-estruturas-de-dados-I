@@ -32,24 +32,61 @@ int vazia (const Lista *lista) { return lista->quantidade == 0; }
 // Insere uma chave x na lista, caso ja nao exista na lista.
 // (Ou seja, nao pode inserir chaves repetidas na lista.)
 void inserir (Lista *lista, int x) {
-	lista->quantidade++;
+    if (cheia(lista)) { return; }
+    for (int i = 0; i < lista->quantidade; i++) {
+        if (lista->itens[i] == x) { return; }
+    }
+    lista->itens[lista->quantidade] = x;
+    lista->quantidade++;
 }
 
 // Remove uma chave x da lista, caso exista.
 void remover (Lista *lista, int x) {
-	lista->quantidade--;
+    for (int i = 0; i < lista->quantidade; i++) {
+        if (lista->itens[i] == x) {
+            for (int j = i; j < lista->quantidade - 1; j++) {
+                lista->itens[j] = lista->itens[j + 1];
+            }
+            lista->quantidade--;
+            return;
+        }
+    }
+}
+
+void reordenarLista(Lista *lista) {
+    int i, j, key;
+    for (j = 1; j < lista->quantidade; j++) {
+        key = lista->itens[j];
+        i = j - 1;
+        while (i >= 0 && lista->itens[i] > key) {
+            lista->itens[i + 1] = lista->itens[i];
+            i = i - 1;
+        }
+        lista->itens[i + 1] = key;
+    }
 }
 
 int main(void) {
 	int quantidadeEntradas, entrada;
     scanf ("%d", &quantidadeEntradas); //quantidade e operacoes na lista
-    
+    Lista *lista = criaListaVazia(quantidadeEntradas);
     char operacao;
     for (int i = 0; i < quantidadeEntradas; i++) {
         scanf (" %c", &operacao);  // ler com espaco na frente para dar certo!
         scanf ("%d", &entrada);
-        
-        printf ("[%c %d]\n", operacao, entrada);
+        switch (operacao) {
+            case 'I':
+                inserir(lista, entrada);
+                break;
+            case 'E':
+                remover(lista, entrada);
+                break;
+        }
     }
+    reordenarLista(lista);
+    for (int i = 0; i < lista->quantidade; i++) {
+        printf("%d\n", lista->itens[i]);
+    }
+    liberaLista(lista);
     return 0;
 }
