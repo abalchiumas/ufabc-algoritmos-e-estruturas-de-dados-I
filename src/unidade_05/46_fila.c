@@ -32,24 +32,40 @@ Item *criaItem(const int chave) {
 // Deve-se liberar primeiro a cadeia de itens.
 // Depois, no final, liberar o ponteiro da fila.
 void liberaFila(Fila *fila) {
-	
+	Item *itemAtual = fila->inicio;
+    while (itemAtual != NULL) {
+        Item *itemTemporario = itemAtual;
+        itemAtual = itemAtual->proximoItem;
+        free(itemTemporario);
+    }
+    free(fila);
 }
 
 // Recebe um ponteiro para uma fila.
 // Devolve 1 se fila vazia, 0 caso contrario.
-int vazia(const Fila *fila) {
-	
-}
+int vazia(const Fila *fila) { return fila->inicio == NULL; }
 
 // Imprime o conteudo da fila, do topo para a base.
 void imprimir(const Fila *fila) {
-	
+	Item *itemAtual = fila->inicio;
+    while (itemAtual != NULL) {
+        printf("%d ", itemAtual->chave);
+        itemAtual = itemAtual->proximoItem;
+    }
+	printf("\n");
 }
 
 // Recebe um ponteiro para uma fila e uma chave x.
 // Insere x no fim da fila.
 void enfileirar(Fila *fila, const int chave) {
-	
+	Item *itemNovo = criaItem(chave);
+	if (vazia(fila)) { 
+		fila->inicio = itemNovo;
+		fila->fim = itemNovo;
+	} else {
+		fila->fim->proximoItem = itemNovo;
+		fila->fim = itemNovo;
+	}	
 }
 
 // Recebe um ponteiro para uma fila.
@@ -57,10 +73,37 @@ void enfileirar(Fila *fila, const int chave) {
 // Devolve a chave removida.
 // Devolve -1 se fila vazia.
 int desenfileirar(Fila *fila) {
-	
+	if (vazia(fila)) { return -1; }
+	Item *itemAntigo = fila->inicio;
+	int chaveParaRemover = itemAntigo->chave;
+	fila->inicio = fila->inicio->proximoItem;
+	if (fila->inicio == NULL) { fila->fim = fila->inicio; }
+	free(itemAntigo);
+	printf("[ %d ]\n", chaveParaRemover);
+	return chaveParaRemover;
 }
 
 int main(void) {
-	printf("Hello!");
+	Fila *fila = criaFilaVazia();
+
+	int tamanhoFila, chave;
+	scanf ("%d", &tamanhoFila);
+
+	char operacao;
+    while (scanf (" %c", &operacao) != EOF) {
+        switch (operacao) {
+            case 'E':
+				scanf ("%d", &chave);
+				enfileirar(fila, chave);
+				break;
+            case 'D':
+				desenfileirar(fila);
+			    break;
+			case 'M':
+				imprimir(fila);
+				break;
+        }
+    }
+	liberaFila(fila);
 	return 0;
 }
