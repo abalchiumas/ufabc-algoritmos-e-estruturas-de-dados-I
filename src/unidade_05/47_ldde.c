@@ -45,7 +45,7 @@ void liberaLista(Lista *lista) {
 
 // Recebe um ponteiro para uma lista.
 // Devolve 1 se lista vazia, 0 caso contrario.
-int vazia(const Lista *lista) { lista->quantidade == 0; }
+int vazia(const Lista *lista) { return lista->quantidade == 0; }
 
 // Imprime o conteudo da lista, do incio para o fim.
 void imprimir(const Lista *lista) {
@@ -77,7 +77,31 @@ void imprimirReverso(const Lista *lista) {
 // (3) insercao no inicio da lista;
 // (4) insercao no meio da lista.
 void inserir(Lista *lista, const int chave) {
-	
+	Item *novoItem = criaItem(chave);
+    if (vazia(lista)) {
+        lista->primeiroItem = lista->ultimoItem = novoItem;
+        lista->quantidade++;
+    } else {
+        Item *itemAtual = lista->primeiroItem;
+        while ((itemAtual != NULL) &&(itemAtual->chave < chave)) { itemAtual = itemAtual->proximoItem; }
+        if ((itemAtual == NULL) || (itemAtual->chave != chave)) {
+            if (itemAtual == lista->primeiroItem) {
+                novoItem->proximoItem = lista->primeiroItem;
+                lista->primeiroItem->itemAnterior = novoItem;
+                lista->primeiroItem = novoItem;
+            } else if (itemAtual == NULL) {
+                lista->ultimoItem->proximoItem = novoItem;
+                novoItem->itemAnterior = lista->ultimoItem;
+                lista->ultimoItem = novoItem;
+            } else {
+                novoItem->proximoItem = itemAtual;
+                novoItem->itemAnterior = itemAtual->itemAnterior;
+                itemAtual->itemAnterior->proximoItem = novoItem;
+                itemAtual->itemAnterior = novoItem;
+            }
+            lista->quantidade++;
+        } else { free(novoItem); }
+    }
 }
 
 // Recebe um ponteiro para uma lista e uma chave x.
@@ -87,7 +111,25 @@ void inserir(Lista *lista, const int chave) {
 // (2) remocao do fim da lista;
 // (3) remocao do meio da lista.
 void remover(Lista *lista, const int chave) {
-	
+    if (!vazia(lista)) {
+        Item *itemAtual = lista->primeiroItem;
+        while ((itemAtual != NULL) && (itemAtual->chave != chave)) { itemAtual = itemAtual->proximoItem; }
+        if (itemAtual != NULL) {
+            if (itemAtual == lista->primeiroItem) {
+                lista->primeiroItem = itemAtual->proximoItem;
+                if (lista->primeiroItem == NULL) { lista->ultimoItem = NULL; } 
+				else { lista->primeiroItem->itemAnterior = NULL; }
+            } else if (itemAtual == lista->ultimoItem) {
+                lista->ultimoItem = itemAtual->itemAnterior;
+                lista->ultimoItem->proximoItem = NULL;
+            } else {
+                itemAtual->itemAnterior->proximoItem = itemAtual->proximoItem;
+                itemAtual->proximoItem->itemAnterior = itemAtual->itemAnterior;
+            }
+            free(itemAtual);
+            lista->quantidade--;
+        }
+    }
 }
 
 int main(void) {
